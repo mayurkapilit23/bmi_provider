@@ -1,12 +1,10 @@
-import 'package:bmi_provider/provider/bmi_provider.dart';
-import 'package:bmi_provider/utils/app_colors.dart';
-import 'package:bmi_provider/utils/gender.dart';
-import 'package:bmi_provider/widgets/custom_button.dart';
 import 'package:bmi_provider/widgets/custom_gender_card.dart';
 import 'package:bmi_provider/widgets/custom_height_card.dart';
 import 'package:bmi_provider/widgets/custom_weight_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import '../utils/app_colors.dart';
+import '../widgets/custom_button.dart';
 
 class BMICalculatorScreen extends StatelessWidget {
   BMICalculatorScreen({super.key});
@@ -17,7 +15,7 @@ class BMICalculatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Access the BMiProvider using Provider.of or context.watch
-    final bmiProvider = Provider.of<BmiProvider>(context);
+    // final bmiProvider = Provider.of<BmiProvider>(context);
     // Alternatively, for continuous listening and rebuilding:
     // final bmiProvider = context.watch<BMIModel>();
 
@@ -46,18 +44,14 @@ class BMICalculatorScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomGenderCard(
-                      gender: Gender.male,
-                      onTap: () {
-                        bmiProvider.handleGenderSelection(Gender.male);
-                      },
+                      onTap: () {},
+                      isSelected: true,
                       text: 'Male',
                     ),
 
                     CustomGenderCard(
-                      gender: Gender.female,
-                      onTap: () {
-                        bmiProvider.handleGenderSelection(Gender.female);
-                      },
+                      isSelected: false,
+                      onTap: () {},
                       text: 'Female',
                     ),
                   ],
@@ -86,10 +80,10 @@ class BMICalculatorScreen extends StatelessWidget {
                 CustomButton(
                   text: 'Calculate BMI',
                   onTap: () {
-                    final height = double.parse(_heightController.text.trim());
-                    final weight = double.parse(_weightController.text.trim());
+                    // final height = double.parse(_heightController.text.trim());
+                    // final weight = double.parse(_weightController.text.trim());
 
-                    bmiProvider.calculateBMI(height, weight);
+                    // bmiProvider.calculateBMI(height, weight);
                   },
                 ),
 

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
-import '../utils/gender.dart';
 
 class CustomGenderCard extends StatelessWidget {
-  final Gender gender;
   final VoidCallback onTap;
   final String text;
+  final bool isSelected;
 
   const CustomGenderCard({
     super.key,
-    required this.gender,
+
     required this.onTap,
     required this.text,
+    required this.isSelected,
   });
 
   @override
@@ -27,7 +27,12 @@ class CustomGenderCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.primaryColor2,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.accentBlueDarkColor, width: 2.5),
+          border: Border.all(
+            color: isSelected
+                ? AppColors.accentBlueDarkColor
+                : Colors.transparent,
+            width: 2.5,
+          ),
 
           boxShadow: [
             BoxShadow(
