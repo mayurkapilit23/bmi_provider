@@ -1,5 +1,9 @@
 import 'package:bmi_provider/provider/bmi_provider.dart';
+import 'package:bmi_provider/utils/app_colors.dart';
+import 'package:bmi_provider/utils/gender.dart';
+import 'package:bmi_provider/widgets/custom_gender_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BMICalculatorScreen extends StatelessWidget {
@@ -16,12 +20,46 @@ class BMICalculatorScreen extends StatelessWidget {
     // final bmiProvider = context.watch<BMIModel>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('BMI Calculator (Provider)')),
+      backgroundColor: AppColors.primaryColor,
+      appBar: AppBar(
+        title: Text(
+          "BMI FitIndex Pro",
+          style: GoogleFonts.montserrat(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        backgroundColor: AppColors.primaryColor,
+
+        elevation: 0.0,
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.sunny))],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomGenderCard(
+                  gender: Gender.male,
+                  onTap: () {
+                    bmiProvider.handleGenderSelection(Gender.male);
+                  },
+                  text: 'Male',
+                ),
+
+                CustomGenderCard(
+                  gender: Gender.female,
+                  onTap: () {
+                    bmiProvider.handleGenderSelection(Gender.female);
+                  },
+                  text: 'Female',
+                ),
+              ],
+            ),
+
             TextField(
               controller: _heightController,
               autofocus: true,

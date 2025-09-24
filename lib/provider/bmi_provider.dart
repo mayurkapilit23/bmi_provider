@@ -1,10 +1,15 @@
 import 'package:flutter/foundation.dart';
 
+import '../utils/gender.dart';
+
 class BmiProvider extends ChangeNotifier {
+  late Gender _selectedGender;
   double _height = 1.70; // Default height in meters
   double _weight = 70; // Default weight in kilograms
   double? _bmi;
   String _bmiCategory = "";
+
+  Gender get selectedGender => _selectedGender;
 
   double get height => _height;
 
@@ -60,4 +65,11 @@ class BmiProvider extends ChangeNotifier {
   // BmiProvider() {
   //   _calculateBMI();
   // }
+
+  //gender selection
+
+  void handleGenderSelection(Gender gender) {
+    _selectedGender = ((selectedGender == gender) ? null : gender)!;
+    notifyListeners();
+  }
 }
