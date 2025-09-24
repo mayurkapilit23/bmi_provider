@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HeightSwitch extends StatefulWidget {
   const HeightSwitch({super.key});
@@ -28,6 +29,7 @@ class _HeightSwitchState extends State<HeightSwitch> {
   );
 
   void _toggleUnit(bool isCm) {
+    HapticFeedback.selectionClick();
     setState(() => _isCm = isCm);
   }
 

@@ -1,6 +1,7 @@
 import 'package:bmi_provider/widgets/height_switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../utils/app_colors.dart';
 
@@ -85,6 +86,9 @@ class _CustomHeightCardState extends State<CustomHeightCard> {
                     setState(() {
                       _selectedIndex = newIndex;
                     });
+
+                    // --- Trigger Haptic Feedback ---
+                    HapticFeedback.selectionClick();
                   },
                   magnification: 1.22,
                   squeeze: 1.2,
