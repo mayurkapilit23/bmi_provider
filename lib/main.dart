@@ -1,6 +1,7 @@
 import 'package:bmi_provider/provider/bmi_provider.dart';
 import 'package:bmi_provider/screens/bmi_calculator_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: GoogleFonts.openSansTextTheme(),
         ),
         home: BMICalculatorScreen(),
       ),
