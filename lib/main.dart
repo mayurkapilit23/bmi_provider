@@ -1,8 +1,6 @@
-import 'package:bmi_provider/provider/bmi_provider.dart';
-import 'package:bmi_provider/screens/bmi_calculator_screen.dart';
+import 'package:bmi_provider/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,17 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => BmiProvider(), // Create an instance of your BMIModel
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: GoogleFonts.openSansTextTheme(),
-        ),
-        home: BMICalculatorScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: GoogleFonts.openSansTextTheme(),
       ),
+      home: SettingsScreen(),
     );
   }
 }

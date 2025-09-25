@@ -1,3 +1,4 @@
+import 'package:bmi_provider/screens/settings_screen.dart';
 import 'package:bmi_provider/widgets/custom_gender_card.dart';
 import 'package:bmi_provider/widgets/custom_height_card.dart';
 import 'package:bmi_provider/widgets/custom_weight_card.dart';
@@ -30,7 +31,16 @@ class BMICalculatorScreen extends StatelessWidget {
         backgroundColor: AppColors.primaryColor2,
 
         elevation: 0.0,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.sunny))],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => SettingsScreen()));
+            },
+            icon: Icon(Icons.settings, color: Colors.black),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
